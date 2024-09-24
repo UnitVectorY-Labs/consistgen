@@ -13,38 +13,24 @@
  */
 package com.unitvectory.consistgen;
 
-import lombok.Builder;
-
 /**
- * Returns a static UUID.
+ * Provides the epoch time.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-
-public class StaticUuidGenerator implements UuidGenerator {
-
-    /**
-     * The UUID.
-     */
-    private final String uuid;
+public interface EpochTimeProvider {
 
     /**
-     * Creates a new StaticUuidGenerator.
-     * 
-     * @param uuid the UUID
+     * Gets the epoch time in milliseconds.
+     * @return the epoch time in milliseconds
      */
-    @Builder
-    public StaticUuidGenerator(String uuid) {
-        if (uuid == null) {
-            this.uuid = "00000000-0000-0000-0000-000000000000";
-        } else {
-            this.uuid = uuid;
-        }
-    }
+    long epochTimeMilliseconds();
 
-    @Override
-    public String generateUuid() {
-        return uuid;
+    /**
+     * Gets the epoch time in seconds.
+     * @return the epoch time in seconds
+     */
+    default long epochTimeSeconds() {
+        return epochTimeMilliseconds() / 1000;
     }
-
 }
