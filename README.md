@@ -88,7 +88,7 @@ public class Run {
 
 Running the program will output something like this, which will vary each time the application is run. The time will be the current system time and the UUID will be randomly generated. While this is intentional for when the application is running, it can make writing test cases challenging.
 
-```
+```text
 Current epoch time: 1727227278720
 Generated UUID: 309e0b9a-632d-4dd7-8751-c5c0d29f725f
 
@@ -127,3 +127,19 @@ class DemoTest {
 ```
 
 This test case will consistently pass as the output is predictable and can be asserted. While this is library wraps very simple underlying methods, the pattern here of using dependency injection to insulate the implementation from the underlying details simplifies testing and allows for predictable test cases.
+
+## Implementations
+
+Each interface provides multiple implementations to allow for different use cases through dependency injection. One implementation will be the production implementation, while others will be used for testing in different scenarios.
+
+The `EpochTimeProvider` interface provides the following implementations:
+
+- `SystemEpochTimeProvider` - Wraps `System.currentTimeMillis()` to provide the current epoch time in milliseconds.
+- `StaticEpochTimeProvider` - Provides a static epoch time every time it is called.
+- `SettableEpochTimeProvider` - Allows you to set the epoch time to be returned when called.
+
+The `UuidGenerator` interface provides the following implementations:
+
+- `RandomUuidGenerator` - Wraps `UUID.randomUUID().toString()` to generate a random UUID.
+- `StaticUuidGenerator` - Provides a static UUID every time it is called.
+- `SettableUuidGenerator` - Allows you to set the UUID to be returned when called.

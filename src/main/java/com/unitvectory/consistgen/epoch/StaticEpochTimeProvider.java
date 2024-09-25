@@ -16,7 +16,9 @@ package com.unitvectory.consistgen.epoch;
 import lombok.Builder;
 
 /**
- * Provides static epoch time.
+ * Provides the epoch time value that will always be the same.
+ * 
+ * Defaults to a value of 0.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */

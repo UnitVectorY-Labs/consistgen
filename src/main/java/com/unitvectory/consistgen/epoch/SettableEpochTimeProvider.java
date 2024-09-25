@@ -13,30 +13,38 @@
  */
 package com.unitvectory.consistgen.epoch;
 
-import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- * Provides the epoch time from the system.
+ * Provides the epoch time from a settable value.
+ * 
+ * Defaults to a value of 0.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SystemEpochTimeProvider implements EpochTimeProvider {
-
-    private static final SystemEpochTimeProvider INSTANCE = new SystemEpochTimeProvider();
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class SettableEpochTimeProvider implements EpochTimeProvider {
 
     /**
-     * Gets the instance of the SystemEpochTimeProvider.
-     * 
-     * @return the instance
+     * The epoch time in milliseconds.
      */
-    public static SystemEpochTimeProvider getInstance() {
-        return INSTANCE;
-    }
+    private long epochTimeMilliseconds = 0;
 
     @Override
     public long epochTimeMilliseconds() {
-        return System.currentTimeMillis();
+        return this.epochTimeMilliseconds;
+    }
+
+    /**
+     * Sets the epoch time in seconds.
+     * 
+     * @param epochTimeSeconds the epoch time in seconds
+     */
+    public void setEpohTimeSeconds(long epochTimeSeconds) {
+        this.epochTimeMilliseconds = epochTimeSeconds * 1000;
     }
 }

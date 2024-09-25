@@ -14,7 +14,7 @@
 package com.unitvectory.consistgen.uuid;
 
 /**
- * Provides a UUID.
+ * Generates a UUID.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */

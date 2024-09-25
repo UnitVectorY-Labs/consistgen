@@ -16,11 +16,10 @@ package com.unitvectory.consistgen.uuid;
 import lombok.Builder;
 
 /**
- * Returns a static UUID.
+ * Generates a UUID whose value is always the same.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-
 public class StaticUuidGenerator implements UuidGenerator {
 
     /**

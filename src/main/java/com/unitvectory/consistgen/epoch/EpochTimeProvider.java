@@ -21,14 +21,14 @@ package com.unitvectory.consistgen.epoch;
 public interface EpochTimeProvider {
 
     /**
-     * Gets the epoch time in milliseconds.
+     * Provides the epoch time in milliseconds.
      * 
      * @return the epoch time in milliseconds
      */
     long epochTimeMilliseconds();
 
     /**
-     * Gets the epoch time in seconds.
+     * Provides the epoch time in seconds.
      * 
      * @return the epoch time in seconds
      */

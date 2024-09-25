@@ -19,7 +19,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 /**
- * Generates a random UUID.
+ * Generates a UUID whose value is random.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
