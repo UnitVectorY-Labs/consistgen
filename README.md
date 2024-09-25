@@ -12,9 +12,15 @@ While mocking frameworks like Mockito can be used to mock these methods, this li
 
 ## Getting Started
 
-This library requires Java 17.
+This library requires Java 17 and is available in the Maven Central Repository:
 
-The initial version has not been published to Maven Central yet.
+```xml
+<dependency>
+    <groupId>com.unitvectory</groupId>
+    <artifactId>consistgen</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
 
 ## Dependency Injection
 
