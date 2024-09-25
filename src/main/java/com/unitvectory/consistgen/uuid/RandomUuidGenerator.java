@@ -11,26 +11,34 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.unitvectory.consistgen;
+package com.unitvectory.consistgen.uuid;
+
+import java.util.UUID;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
- * Provides the epoch time.
+ * Generates a random UUID.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-public interface EpochTimeProvider {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class RandomUuidGenerator implements UuidGenerator {
+
+    private static final RandomUuidGenerator INSTANCE = new RandomUuidGenerator();
 
     /**
-     * Gets the epoch time in milliseconds.
-     * @return the epoch time in milliseconds
+     * Gets the instance of the RandomUuidGenerator.
+     * 
+     * @return the instance
      */
-    long epochTimeMilliseconds();
+    public static RandomUuidGenerator getInstance() {
+        return INSTANCE;
+    }
 
-    /**
-     * Gets the epoch time in seconds.
-     * @return the epoch time in seconds
-     */
-    default long epochTimeSeconds() {
-        return epochTimeMilliseconds() / 1000;
+    @Override
+    public String generateUuid() {
+        return UUID.randomUUID().toString();
     }
 }

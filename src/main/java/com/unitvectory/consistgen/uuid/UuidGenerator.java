@@ -11,25 +11,19 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.unitvectory.consistgen;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import org.junit.jupiter.api.Test;
+package com.unitvectory.consistgen.uuid;
 
 /**
- * Test the RandomUuidGenerator class.
+ * Provides a UUID.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-class RandomUuidGeneratorTest {
+public interface UuidGenerator {
 
-    @Test
-    void testGenerateUuid() {
-        UuidGenerator generator = RandomUuidGenerator.getInstance();
-        String uuid = generator.generateUuid();
-        assertNotNull(uuid);
-        assertEquals(36, uuid.length());
-    }
+    /**
+     * Generates a UUID.
+     * 
+     * @return the UUID
+     */
+    String generateUuid();
 }

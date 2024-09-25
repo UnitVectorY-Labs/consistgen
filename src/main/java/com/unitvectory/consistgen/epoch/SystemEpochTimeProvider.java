@@ -11,19 +11,32 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.unitvectory.consistgen;
+package com.unitvectory.consistgen.epoch;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
- * Provides a UUID.
+ * Provides the system epoch time.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-public interface UuidGenerator {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class SystemEpochTimeProvider implements EpochTimeProvider {
+
+    private static final SystemEpochTimeProvider INSTANCE = new SystemEpochTimeProvider();
 
     /**
-     * Generates a UUID.
+     * Gets the instance of the SystemEpochTimeProvider.
      * 
-     * @return the UUID
+     * @return the instance
      */
-    String generateUuid();
+    public static SystemEpochTimeProvider getInstance() {
+        return INSTANCE;
+    }
+
+    @Override
+    public long epochTimeMilliseconds() {
+        return System.currentTimeMillis();
+    }
 }

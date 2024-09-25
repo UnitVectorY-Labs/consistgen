@@ -11,40 +11,25 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.unitvectory.consistgen;
+package com.unitvectory.consistgen.uuid;
 
-import lombok.Builder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
 
 /**
- * Returns a static UUID.
+ * Test the RandomUuidGenerator class.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
+class RandomUuidGeneratorTest {
 
-public class StaticUuidGenerator implements UuidGenerator {
-
-    /**
-     * The UUID.
-     */
-    private final String uuid;
-
-    /**
-     * Creates a new StaticUuidGenerator.
-     * 
-     * @param uuid the UUID
-     */
-    @Builder
-    public StaticUuidGenerator(String uuid) {
-        if (uuid == null) {
-            this.uuid = "00000000-0000-0000-0000-000000000000";
-        } else {
-            this.uuid = uuid;
-        }
+    @Test
+    void testGenerateUuid() {
+        UuidGenerator generator = RandomUuidGenerator.getInstance();
+        String uuid = generator.generateUuid();
+        assertNotNull(uuid);
+        assertEquals(36, uuid.length());
     }
-
-    @Override
-    public String generateUuid() {
-        return uuid;
-    }
-
 }
