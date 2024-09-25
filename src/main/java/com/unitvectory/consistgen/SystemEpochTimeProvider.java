@@ -13,12 +13,27 @@
  */
 package com.unitvectory.consistgen;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * Provides the system epoch time.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SystemEpochTimeProvider implements EpochTimeProvider {
+
+    private static final SystemEpochTimeProvider INSTANCE = new SystemEpochTimeProvider();
+
+    /**
+     * Gets the instance of the SystemEpochTimeProvider.
+     * 
+     * @return the instance
+     */
+    public static SystemEpochTimeProvider getInstance() {
+        return INSTANCE;
+    }
 
     @Override
     public long epochTimeMilliseconds() {

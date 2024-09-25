@@ -27,7 +27,7 @@ class RandomUuidGeneratorTest {
 
     @Test
     void testGenerateUuid() {
-        UuidGenerator generator = new RandomUuidGenerator();
+        UuidGenerator generator = RandomUuidGenerator.getInstance();
         String uuid = generator.generateUuid();
         assertNotNull(uuid);
         assertEquals(36, uuid.length());

@@ -26,7 +26,7 @@ public class SystemEpochTimeProviderTest {
 
     @Test
     public void testEpochTimeMilliseconds() {
-        EpochTimeProvider provider = new SystemEpochTimeProvider();
+        EpochTimeProvider provider = SystemEpochTimeProvider.getInstance();
         long time = provider.epochTimeMilliseconds();
         long now = System.currentTimeMillis();
         assertTrue(time >= now);
@@ -34,7 +34,7 @@ public class SystemEpochTimeProviderTest {
 
     @Test
     public void testEpochTimeSeconds() {
-        EpochTimeProvider provider = new SystemEpochTimeProvider();
+        EpochTimeProvider provider = SystemEpochTimeProvider.getInstance();
         long time = provider.epochTimeSeconds();
         long now = System.currentTimeMillis() / 1000;
         assertTrue(time >= now);

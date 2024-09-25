@@ -15,12 +15,27 @@ package com.unitvectory.consistgen;
 
 import java.util.UUID;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * Generates a random UUID.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RandomUuidGenerator implements UuidGenerator {
+
+    private static final RandomUuidGenerator INSTANCE = new RandomUuidGenerator();
+
+    /**
+     * Gets the instance of the RandomUuidGenerator.
+     * 
+     * @return the instance
+     */
+    public static RandomUuidGenerator getInstance() {
+        return INSTANCE;
+    }
 
     @Override
     public String generateUuid() {
