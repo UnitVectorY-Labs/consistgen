@@ -25,31 +25,32 @@ import org.junit.jupiter.api.Test;
 class StaticEpochTimeProviderTest {
 
     @Test
-    public void testDefaultConstructor() {
-        StaticEpochTimeProvider provider = StaticEpochTimeProvider.builder().build();
+    void testDefaultConstructor() {
+        EpochTimeProvider provider = StaticEpochTimeProvider.builder().build();
         assertEquals(0, provider.epochTimeMilliseconds());
     }
 
     @Test
-    public void testConstructorWithMilliseconds() {
-        StaticEpochTimeProvider provider = StaticEpochTimeProvider.builder()
+    void testConstructorWithMilliseconds() {
+        EpochTimeProvider provider = StaticEpochTimeProvider.builder()
                 .epochTimeMilliseconds(123456789L)
                 .build();
         assertEquals(123456789L, provider.epochTimeMilliseconds());
     }
 
     @Test
-    public void testConstructorWithSeconds() {
-        StaticEpochTimeProvider provider = StaticEpochTimeProvider.builder()
+    void testConstructorWithSeconds() {
+        EpochTimeProvider provider = StaticEpochTimeProvider.builder()
                 .epochTimeSeconds(123456L)
                 .build();
         assertEquals(123456000L, provider.epochTimeMilliseconds());
+        assertEquals(123456L, provider.epochTimeSeconds());
     }
 
     @Test
-    public void testConstructorWithBothValues() {
+    void testConstructorWithBothValues() {
         // When both milliseconds and seconds are provided always use milliseconds
-        StaticEpochTimeProvider provider = StaticEpochTimeProvider.builder()
+        EpochTimeProvider provider = StaticEpochTimeProvider.builder()
                 .epochTimeMilliseconds(123456789L)
                 .epochTimeSeconds(123456L)
                 .build();

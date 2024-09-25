@@ -14,26 +14,22 @@
 package com.unitvectory.consistgen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
 /**
- * Test the StaticUuidGenerator class.
+ * Test the RandomUuidGenerator class.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-class StaticUuidGeneratorTest {
+class RandomUuidGeneratorTest {
 
     @Test
     void testGenerateUuid() {
-        UuidGenerator generator = StaticUuidGenerator.builder().build();
-        assertEquals("00000000-0000-0000-0000-000000000000", generator.generateUuid());
-    }
-
-    @Test
-    void testGenerateUuidSpecific() {
-        UuidGenerator generator = StaticUuidGenerator.builder().uuid("11111111-1111-1111-1111-111111111111")
-                .build();
-        assertEquals("11111111-1111-1111-1111-111111111111", generator.generateUuid());
+        UuidGenerator generator = new RandomUuidGenerator();
+        String uuid = generator.generateUuid();
+        assertNotNull(uuid);
+        assertEquals(36, uuid.length());
     }
 }

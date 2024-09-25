@@ -13,27 +13,30 @@
  */
 package com.unitvectory.consistgen;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 /**
- * Test the StaticUuidGenerator class.
+ * Test the SystemEpochTimeProvider class.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-class StaticUuidGeneratorTest {
+public class SystemEpochTimeProviderTest {
 
     @Test
-    void testGenerateUuid() {
-        UuidGenerator generator = StaticUuidGenerator.builder().build();
-        assertEquals("00000000-0000-0000-0000-000000000000", generator.generateUuid());
+    public void testEpochTimeMilliseconds() {
+        EpochTimeProvider provider = new SystemEpochTimeProvider();
+        long time = provider.epochTimeMilliseconds();
+        long now = System.currentTimeMillis();
+        assertTrue(time >= now);
     }
 
     @Test
-    void testGenerateUuidSpecific() {
-        UuidGenerator generator = StaticUuidGenerator.builder().uuid("11111111-1111-1111-1111-111111111111")
-                .build();
-        assertEquals("11111111-1111-1111-1111-111111111111", generator.generateUuid());
+    public void testEpochTimeSeconds() {
+        EpochTimeProvider provider = new SystemEpochTimeProvider();
+        long time = provider.epochTimeSeconds();
+        long now = System.currentTimeMillis() / 1000;
+        assertTrue(time >= now);
     }
 }
