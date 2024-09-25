@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Active](https://img.shields.io/badge/Status-Active-green)](https://guide.unitvectorylabs.com/bestpractices/status/#active) [![codecov](https://codecov.io/gh/UnitVectorY-Labs/consistgen/graph/badge.svg?token=FaZOUbYgks)](https://codecov.io/gh/UnitVectorY-Labs/consistgen)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Active](https://img.shields.io/badge/Status-Active-green)](https://guide.unitvectorylabs.com/bestpractices/status/#active) [![javadoc](https://javadoc.io/badge2/com.unitvectory/consistgen/javadoc.svg)](https://javadoc.io/doc/com.unitvectory/consistgen) [![codecov](https://codecov.io/gh/UnitVectorY-Labs/consistgen/graph/badge.svg?token=FaZOUbYgks)](https://codecov.io/gh/UnitVectorY-Labs/consistgen)
 
 # consistgen
 
