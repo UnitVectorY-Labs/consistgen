@@ -28,14 +28,7 @@ import org.junit.jupiter.api.Test;
  */
 class RandomStringProviderTest {
 
-    /**
-     * Helper method to test that the random string
-     * 
-     * @param result
-     * @param alphabet
-     * @return
-     */
-    static boolean isLimitedToAlphabet(String result, String alphabet) {
+    private boolean isLimitedToAlphabet(String result, String alphabet) {
         for (char c : result.toCharArray()) {
             if (alphabet.indexOf(c) < 0) {
                 return false;
@@ -52,7 +45,7 @@ class RandomStringProviderTest {
         for (int i = 1; i < 100; i++) {
             String result = provider.generate(i);
             assertEquals(i, result.length());
-            assertTrue(RandomStringProviderTest.isLimitedToAlphabet(result, RandomStringProvider.ALPHABET));
+            assertTrue(isLimitedToAlphabet(result, RandomStringProvider.ALPHABET));
         }
     }
 
@@ -64,7 +57,7 @@ class RandomStringProviderTest {
         for (int i = 1; i < 100; i++) {
             String result = provider.generate(i);
             assertEquals(i, result.length());
-            assertTrue(RandomStringProviderTest.isLimitedToAlphabet(result, customAlphabet));
+            assertTrue(isLimitedToAlphabet(result, customAlphabet));
         }
     }
 
@@ -108,4 +101,3 @@ class RandomStringProviderTest {
         assertEquals("length must be greater than 0", thrown.getMessage());
     }
 }
-
