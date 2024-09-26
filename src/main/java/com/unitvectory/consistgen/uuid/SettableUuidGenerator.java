@@ -42,7 +42,7 @@ public class SettableUuidGenerator implements UuidGenerator {
     @Builder
     public SettableUuidGenerator(String uuid) {
         if (uuid == null) {
-            uuid = null;
+            uuid = DEFAULT;
         } else {
             this.uuid = uuid;
         }
@@ -55,6 +55,9 @@ public class SettableUuidGenerator implements UuidGenerator {
 
     /**
      * Set the UUID.
+     * 
+     * If value is set to null default value of
+     * "00000000-0000-0000-0000-000000000000" will be used.
      * 
      * @param uuid the UUID
      */
