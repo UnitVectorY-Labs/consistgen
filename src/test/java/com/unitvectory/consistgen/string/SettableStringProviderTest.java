@@ -67,6 +67,15 @@ class SettableStringProviderTest {
     }
 
     @Test
+    void testSetEmptyAlphabet() {
+        SettableStringProvider provider = SettableStringProvider.builder().build();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            provider.setAlphabet("");
+        });
+        assertEquals("alphabet must not be empty", exception.getMessage());
+    }
+
+    @Test
     void testFullAlphabet() {
         SettableStringProvider provider = SettableStringProvider.builder().build();
         String result = provider.generate(124);
@@ -77,7 +86,7 @@ class SettableStringProviderTest {
     @Test
     void testSetAlphabet() {
         SettableStringProvider provider = SettableStringProvider.builder().build();
-        
+
         provider.setAlphabet("a");
         String result = provider.generate(10);
         assertEquals("aaaaaaaaaa", result);

@@ -69,10 +69,6 @@ public class SettableStringProvider implements StringProvider {
             throw new IllegalArgumentException("length must be greater than 0");
         }
 
-        if (this.alphabet == null || this.alphabet.length() == 0) {
-            throw new IllegalStateException("alphabet is not set");
-        }
-
         StringBuilder builder = new StringBuilder(length);
 
         for (int i = 0; i < length; i++) {
@@ -85,9 +81,17 @@ public class SettableStringProvider implements StringProvider {
     /**
      * Set the alphabet to use for generating the string.
      * 
+     * Sertting the alphabet to null will set the alphabet to the default alphabet.
+     * 
      * @param alphabet the alphabet to use for generating the string
      */
     public void setAlphabet(String alphabet) {
-        this.alphabet = alphabet;
+        if (alphabet == null) {
+            this.alphabet = RandomStringProvider.ALPHABET;
+        } else if (alphabet.isEmpty()) {
+            throw new IllegalArgumentException("alphabet must not be empty");
+        } else {
+            this.alphabet = alphabet;
+        }
     }
 }

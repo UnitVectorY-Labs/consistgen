@@ -81,6 +81,14 @@ class RandomStringProviderTest {
     }
 
     @Test
+    void testGenerateWithEmptyAlphabet() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            RandomStringProvider.builder().alphabet("").build();
+        });
+        assertEquals("alphabet must not be empty", exception.getMessage());
+    }
+
+    @Test
     void testNegativeLength() {
         RandomStringProvider provider = RandomStringProvider.builder().build();
         IllegalArgumentException thrown = assertThrows(
