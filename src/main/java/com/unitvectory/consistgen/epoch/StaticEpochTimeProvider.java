@@ -25,6 +25,11 @@ import lombok.Builder;
 public class StaticEpochTimeProvider implements EpochTimeProvider {
 
     /**
+     * The default instance of the StaticEpochTimeProvider.
+     */
+    private static final StaticEpochTimeProvider INSTANCE = StaticEpochTimeProvider.builder().build();
+
+    /**
      * The epoch time in milliseconds.
      */
     private final long epochTimeMilliseconds;
@@ -49,5 +54,16 @@ public class StaticEpochTimeProvider implements EpochTimeProvider {
     @Override
     public long epochTimeMilliseconds() {
         return this.epochTimeMilliseconds;
+    }
+
+    /**
+     * Gets the instance of the StaticEpochTimeProvider.
+     * 
+     * This will always return the same instance of zero epoch time.
+     * 
+     * @return the default instance of the StaticEpochTimeProvider
+     */
+    public static StaticEpochTimeProvider getInstance() {
+        return INSTANCE;
     }
 }

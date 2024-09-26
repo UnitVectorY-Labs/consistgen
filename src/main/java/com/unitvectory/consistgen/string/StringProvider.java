@@ -11,32 +11,23 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.unitvectory.consistgen.epoch;
-
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+package com.unitvectory.consistgen.string;
 
 /**
- * Provides the epoch time from the system.
+ * Provides a string that is a random value.
+ * 
+ * This is intended to be used for purposes such as identifiers or secrets used
+ * in systems.
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SystemEpochTimeProvider implements EpochTimeProvider {
-
-    private static final SystemEpochTimeProvider INSTANCE = new SystemEpochTimeProvider();
+public interface StringProvider {
 
     /**
-     * Gets the instance of the SystemEpochTimeProvider.
+     * Generates a random string.
      * 
-     * @return the detailt instance of the SystemEpochTimeProvider
+     * @param length the length of the string to generate
+     * @return the string
      */
-    public static SystemEpochTimeProvider getInstance() {
-        return INSTANCE;
-    }
-
-    @Override
-    public long epochTimeMilliseconds() {
-        return System.currentTimeMillis();
-    }
+    String generate(int length);
 }

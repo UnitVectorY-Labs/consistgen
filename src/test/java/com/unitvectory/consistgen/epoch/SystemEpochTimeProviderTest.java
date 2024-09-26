@@ -22,10 +22,10 @@ import org.junit.jupiter.api.Test;
  * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-public class SystemEpochTimeProviderTest {
+class SystemEpochTimeProviderTest {
 
     @Test
-    public void testEpochTimeMilliseconds() {
+    void testEpochTimeMilliseconds() {
         EpochTimeProvider provider = SystemEpochTimeProvider.getInstance();
         long time = provider.epochTimeMilliseconds();
         long now = System.currentTimeMillis();
@@ -33,7 +33,7 @@ public class SystemEpochTimeProviderTest {
     }
 
     @Test
-    public void testEpochTimeSeconds() {
+    void testEpochTimeSeconds() {
         EpochTimeProvider provider = SystemEpochTimeProvider.getInstance();
         long time = provider.epochTimeSeconds();
         long now = System.currentTimeMillis() / 1000;

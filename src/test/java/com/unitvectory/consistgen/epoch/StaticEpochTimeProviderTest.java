@@ -26,7 +26,7 @@ class StaticEpochTimeProviderTest {
 
     @Test
     void testDefaultConstructor() {
-        EpochTimeProvider provider = StaticEpochTimeProvider.builder().build();
+        EpochTimeProvider provider = StaticEpochTimeProvider.getInstance();
         assertEquals(0, provider.epochTimeMilliseconds());
     }
 
