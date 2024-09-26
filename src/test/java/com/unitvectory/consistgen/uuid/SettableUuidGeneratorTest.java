@@ -25,25 +25,29 @@ class SettableUuidGeneratorTest {
 
     @Test
     void testDefaultUuid() {
-        SettableUuidGenerator generator = new SettableUuidGenerator();
+        SettableUuidGenerator generator = SettableUuidGenerator.builder().build();
         assertEquals("00000000-0000-0000-0000-000000000000", generator.generateUuid());
     }
 
     @Test
     void testConstructorWithUuid() {
         String customUuid = "12345678-1234-1234-1234-123456789abc";
-        SettableUuidGenerator generator = new SettableUuidGenerator(customUuid);
+        SettableUuidGenerator generator = SettableUuidGenerator.builder().uuid(customUuid).build();
         assertEquals(customUuid, generator.generateUuid());
     }
 
     @Test
     void testUuidSetter() {
-        SettableUuidGenerator generator = new SettableUuidGenerator();
+        SettableUuidGenerator generator = SettableUuidGenerator.builder().build();
         String firstUuid = "11111111-1111-1111-1111-111111111111";
         generator.setUuid(firstUuid);
         assertEquals(firstUuid, generator.generateUuid());
+
         String secondUuid = "22222222-2222-2222-2222-222222222222";
         generator.setUuid(secondUuid);
         assertEquals(secondUuid, generator.generateUuid());
+
+        generator.setUuid(null);
+        assertEquals("00000000-0000-0000-0000-000000000000", generator.generateUuid());
     }
 }
