@@ -13,27 +13,59 @@
  */
 package com.unitvectory.consistgen.uuid;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Builder;
 
 /**
  * Generates a UUID whose value can be set.
  * 
+ * The UUID will default to "00000000-0000-0000-0000-000000000000"
+ * 
  * @author Jared Hatfield (UnitVectorY Labs)
  */
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class SettableUuidGenerator implements UuidGenerator {
+
+    /**
+     * The default UUID.
+     */
+    private static final String DEFAULT = "00000000-0000-0000-0000-000000000000";
 
     /**
      * The UUID.
      */
-    private String uuid = "00000000-0000-0000-0000-000000000000";
+    private String uuid;
+
+    /**
+     * Create a new SettableUuidGenerator.
+     * 
+     * @param uuid the UUID
+     */
+    @Builder
+    public SettableUuidGenerator(String uuid) {
+        if (uuid == null) {
+            this.uuid = DEFAULT;
+        } else {
+            this.uuid = uuid;
+        }
+    }
 
     @Override
     public String generateUuid() {
         return this.uuid;
+    }
+
+    /**
+     * Set the UUID.
+     * 
+     * If value is set to null default value of
+     * "00000000-0000-0000-0000-000000000000" will be used.
+     * 
+     * @param uuid the UUID
+     */
+    public void setUuid(String uuid) {
+        if (uuid == null) {
+            this.uuid = DEFAULT;
+        } else {
+            this.uuid = uuid;
+        }
     }
 }
