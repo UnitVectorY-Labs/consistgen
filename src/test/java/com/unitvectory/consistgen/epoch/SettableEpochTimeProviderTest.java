@@ -45,21 +45,21 @@ class SettableEpochTimeProviderTest {
     }
 
     @Test
-    void testSetEpohTimeSeconds() {
+    void testsetEpochTimeSeconds() {
         SettableEpochTimeProvider provider = new SettableEpochTimeProvider();
         long newTimeSeconds = 10;
-        provider.setEpohTimeSeconds(newTimeSeconds);
+        provider.setEpochTimeSeconds(newTimeSeconds);
         assertEquals(newTimeSeconds * 1000, provider.epochTimeMilliseconds());
     }
 
     @Test
-    void testSetEpohTimeSecondsMultiple() {
+    void testsetEpochTimeSecondsMultiple() {
         SettableEpochTimeProvider provider = new SettableEpochTimeProvider();
         long newTimeSeconds = 10;
-        provider.setEpohTimeSeconds(newTimeSeconds);
+        provider.setEpochTimeSeconds(newTimeSeconds);
         assertEquals(newTimeSeconds * 1000, provider.epochTimeMilliseconds());
         newTimeSeconds = 20;
-        provider.setEpohTimeSeconds(newTimeSeconds);
+        provider.setEpochTimeSeconds(newTimeSeconds);
         assertEquals(newTimeSeconds * 1000, provider.epochTimeMilliseconds());
     }
 }

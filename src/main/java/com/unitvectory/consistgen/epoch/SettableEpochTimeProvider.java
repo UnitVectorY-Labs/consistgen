@@ -44,7 +44,7 @@ public class SettableEpochTimeProvider implements EpochTimeProvider {
      * 
      * @param epochTimeSeconds the epoch time in seconds
      */
-    public void setEpohTimeSeconds(long epochTimeSeconds) {
+    public void setEpochTimeSeconds(long epochTimeSeconds) {
         this.epochTimeMilliseconds = epochTimeSeconds * 1000;
     }
 }
