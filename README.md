@@ -18,7 +18,7 @@ This library requires Java 17 and is available in the Maven Central Repository:
 <dependency>
     <groupId>com.unitvectory</groupId>
     <artifactId>consistgen</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
 </dependency>
 ```
 
