@@ -21,4 +21,4 @@ config:
   docs:
     enabled: false
   gitignore:
-    - .vscode
+    - .vscode/
