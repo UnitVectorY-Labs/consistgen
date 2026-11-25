@@ -11,9 +11,6 @@ config:
     group_id: com.unitvectory
     artifact_id: consistgen
     javadoc: true
-  codecov:
-    enabled: true
-    token: FaZOUbYgks
   osv: sarif
   clip4llm:
     exclude:
